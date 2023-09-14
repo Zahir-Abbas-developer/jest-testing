@@ -9,11 +9,11 @@ const UserForm=({handleUsers})=>{
        console.log(name,email)
     }
 return(
-    <form>
-        <label>Name</label>
-        <input value={name} onChange={(e)=>setName(e.target.value)} />
-        <label>Email</label>
-        <input value={email} onChange={(e)=>setEmail(e.target.value)} />
+    <form >
+        <label htmlFor="name">Name</label>
+        <input id="name" value={name} onChange={(e)=>setName(e.target.value)} />
+        <label htmlFor="email">Email</label>
+        <input id="email" value={email} onChange={(e)=>setEmail(e.target.value)} />
         <button  onClick={handleSubmit}>Add User</button>
     </form>
 )

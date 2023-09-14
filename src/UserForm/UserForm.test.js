@@ -3,6 +3,7 @@ import UserForm from "./UserForm"
 
 test("show two inputs and one button",(()=>{
      render (<UserForm/>);
+     
      const inputs=screen.getAllByRole("textbox");
      const button=screen.getByRole("button")
      //The toHaveLength function is typically used with arrays to check the number of elements in the array. When you use screen.getByRole("button"), it returns a single DOM element, not an array. Therefore, you should not use toHaveLength(1) with it.
@@ -11,3 +12,12 @@ test("show two inputs and one button",(()=>{
      expect(button).toBeInTheDocument()
  
 }))
+test("it calls handleUsers when form is submitted",()=>{ 
+     const mock=jest.fn();
+     render(<UserForm handleUsers={mock} />)
+     const nameInput=screen.getByRole("textbox",{})
+     user.click(nameInput);
+     user.keyboard("zahir")
+     user.click(emailInput);
+     user.keyboard("zahirr060@gmail.com")
+})
